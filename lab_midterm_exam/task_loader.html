@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments and Lab Tasks</title>
+</head>
+<body>
+    <h1>Assignments and Lab Tasks</h1>
+    <ul>
+        <li><a href="assignment1/ass1.html">Assignment 1: CV using HTML & CSS</a></li>
+        <li><a href="assignement2/ass2.html">Assignment 2: E-Commerce Landing Page</a></li>
+        <li><a href="labtask1/lab1.html">Lab Task 1: Landing Page using Bootstrap</a></li>
+        <li><a href="labtask2/lab2.html">Lab Task 2: Checkout Page with Validation</a></li>
+    </ul>
+</body>
+</html>
+<iframe id="taskViewer" style="width: 100%; height: 500px; border: 1px solid #ccc;"></iframe>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    li {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007BFF;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    button {
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    iframe {
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+</style>
+<script>
+    document.getElementById('taskViewer').src = "assignment1/ass1.html";
+
+    document.querySelectorAll('a').forEach(link => {
+        const viewButton = document.createElement('button');
+        viewButton.textContent = 'View';
+        viewButton.style.marginLeft = '10px';
+        viewButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            document.getElementById('taskViewer').src = link.getAttribute('href');
+        });
+        link.parentElement.appendChild(viewButton);
+    });
+</script>
