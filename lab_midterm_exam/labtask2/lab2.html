@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            margin-top: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Checkout</h1>
+        <form action="/submit-checkout" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="address">Shipping Address</label>
+            <textarea id="address" name="address" rows="4" placeholder="Enter your shipping address" required></textarea>
+            <label for="phonenumber">Phone Number</label>
+            <input type="text" id="phonenumber" name="phonenumber" placeholder="Enter your phone number" required>
+
+            <label for="CCNo">Credit Card Number</label>
+            <input type="text" id="CCNo" name="CCNo" placeholder="Enter your credit card number" required>
+
+            <label for="Expdate">Expiry Date</label>
+            <input type="text" id="Expdate" name="Expdate" placeholder="MM/YY" required>
+
+            <label for="CVV">CVV</label>
+            <input type="text" id="CVV" name="CVV" placeholder="Enter your CVV" required>
+            <button type="submit">Complete Checkout</button>
+        </form>
+    </div>
+    <div></div>
+    <script>
+        document.querySelector('button').addEventListener('click', function(event) {
+            const form = document.querySelector('form');
+            if (form.checkValidity()) {
+                form.submit();
+            } else {
+                event.preventDefault();
+                const fields = form.elements;
+                Array.from(fields).forEach(field => {
+                    const errorSpan = field.nextElementSibling;
+                    if (errorSpan && errorSpan.classList.contains('error-message')) {
+                        errorSpan.remove();
+                    }
+                    if (!field.checkValidity()) {
+                        const span = document.createElement('span');
+                        span.classList.add('error-message');
+                        span.style.color = 'red';
+                        span.style.fontSize = '12px';
+                        span.textContent = 'This field is invalid or required.';
+                        field.insertAdjacentElement('afterend', span);
+                        field.style.borderColor = 'red';
+                    } else {
+                        field.style.borderColor = '';
+                    }
+                });
+                if (form.checkValidity()) {
+                    form.reset();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

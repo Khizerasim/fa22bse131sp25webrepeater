@@ -321,186 +321,6 @@
         <a href="#">Store Locator</a>
         <a href="#">Customer Services</a>
     </div>
-    <style>
-        @media (max-width: 768px) {
-            .top-links {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .top-links a {
-                margin: 10px 0;
-                display: block;
-            }
-
-            .top-info {
-                font-size: 18px;
-                padding: 15px 0;
-            }
-
-            .hero-content span {
-                font-size: 40px;
-            }
-
-            .hero-content button {
-                font-size: 20px;
-                padding: 15px 30px;
-            }
-
-            .athleisure span,
-            .iconic span,
-            .effortless span {
-                font-size: 80px;
-            }
-
-            .athleisure p,
-            .iconic p,
-            .effortless p {
-                font-size: 28px;
-            }
-
-            .athleisure button,
-            .iconic button,
-            .effortless button {
-                font-size: 24px;
-                padding: 15px 30px;
-            }
-
-            .posters {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .poster {
-                width: 80%;
-                margin-bottom: 20px;
-            }
-
-            .signup {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .checkboxes {
-                grid-template-columns: 1fr;
-                margin: 0;
-            }
-
-            .email {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .email input[type="text"] {
-                margin-bottom: 10px;
-            }
-
-            .footer-column {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .footer {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .social-icons img,
-            .payment-icons img {
-                margin: 5px;
-            }
-        }
-    </style>
-    <div class="carousel" style="height: 400px;"></div>
-        <div class="carousel-container">
-            <div class="carousel-slide">
-                <img src="https://cdn.media.amplience.net/i/clarks/ATH_wk12_hero2?fmt=auto&w=800" alt="New Athleisure Slide" style="height: 100%; object-fit: cover;">
-            </div>
-            <div class="carousel-slide">
-                <img src="https://cdn.media.amplience.net/i/clarks/ICONS_wk12_hero2?fmt=auto&w=800" alt="New Iconic Slide" style="height: 100%; object-fit: cover;">
-            </div>
-            <div class="carousel-slide">
-                <img src="https://cdn.media.amplience.net/i/clarks/DRESS_wk12_hero2?fmt=auto&w=800" alt="New Effortless Slide" style="height: 100%; object-fit: cover;">
-            </div>
-        </div>
-        <button class="carousel-prev">&#10094;</button>
-        <button class="carousel-next">&#10095;</button>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                updateCarousel();
-            });
-        </script>
-    </div>
-
-    <style>
-        .carousel {
-            position: absolute;
-            max-width: 100%;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        .carousel-container {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            box-sizing: border-box;
-        }
-
-        .carousel-slide img {
-            width: 100%;
-            display:block;
-        }
-
-        .carousel-prev, .carousel-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .carousel-prev {
-            left: 10px;
-        }
-
-        .carousel-next {
-            right: 10px;
-        }
-    </style>
-
-    <script>
-        const carouselContainer = document.querySelector('.carousel-container');
-        const slides = document.querySelectorAll('.carousel-slide');
-        const prevButton = document.querySelector('.carousel-prev');
-        const nextButton = document.querySelector('.carousel-next');
-        let currentIndex = 0;
-
-        function updateCarousel() {
-            const slideWidth = slides[0].clientWidth;
-            carouselContainer.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-        }
-
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateCarousel();
-        });
-
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateCarousel();
-        });
-
-        window.addEventListener('resize', updateCarousel);
-    </script>
     <div class="hero">
         <img src="https://cdn.media.amplience.net/i/clarks/db-uk-tv-ad-hero-ph-wk12-ss25" alt="Hero Image">
         <div class="hero-content">
@@ -536,19 +356,18 @@
         </div>
     </div>
     <div>
-            <div class="effortless">
-                <span>Effortless Dressing</span>
-                <p>These elevated, super-comfortable pairs lend premium polish to everyday wear</p>
-                <button>Shop Women's Smart Shoes from £50</button>
-                <button>Shop Men's Smart Shoes from £60</button>
-                <div class="posters">
-                    <div class="poster"><img src="https://cdn.media.amplience.net/i/clarks/DRESS_box_3_wk12?fmt=auto&w=510"
-                            alt="Loafers"><a href="#">Shop Loafers</a></div>
-                    <div class="poster"><img src="https://cdn.media.amplience.net/i/clarks/DRESS_box_2_wk12?fmt=auto&w=510"
-                            alt="Black Shoes"><a href="#">Shop Black Shoes</a></div>
-                    <div class="poster"><img src="https://cdn.media.amplience.net/i/clarks/DRESS_box_1_wk12?fmt=auto&w=510"
-                            alt="Women's Ballet Flats"><a href="#">Shop Women's Ballet Flats</a></div>
-                </div>
+        <div class="effortless">
+            <span>Effortless Dressing</span>
+            <p>These elevated, super-comfortable pairs lend premium polish to everyday wear</p>
+            <button>Shop Women's Smart Shoes from £50</button>
+            <button>Shop Men's Smart Shoes from £60</button>
+            <div class="posters">
+                <div class="poster"><img src="https://cdn.media.amplience.net/i/clarks/DRESS_box_3_wk12?fmt=auto&w=510"
+                        alt="Loafers"><a href="#">Shop Loafers</a></div>
+                <div class="poster"><img src="https://cdn.media.amplience.net/i/clarks/DRESS_box_2_wk12?fmt=auto&w=510"
+                        alt="Black Shoes"><a href="#">Shop Black Shoes</a></div>
+                <div class="poster"><img src="https://cdn.media.amplience.net/i/clarks/DRESS_box_1_wk12?fmt=auto&w=510"
+                        alt="Women's Ballet Flats"><a href="#">Shop Women's Ballet Flats</a></div>
             </div>
         </div>
         <div class="iconic-section"
