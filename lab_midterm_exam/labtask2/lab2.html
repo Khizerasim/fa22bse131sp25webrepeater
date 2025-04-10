@@ -84,28 +84,36 @@
         document.querySelector('form').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
             const form = event.target;
+            const fields = form.elements;
+            let isValid = true;
+
+            Array.from(fields).forEach(field => {
+                const errorSpan = field.nextElementSibling;
+                if (errorSpan && errorSpan.classList.contains('error-message')) {
+                    errorSpan.remove();
+                }
+
+                if (!field.checkValidity()) {
+                    isValid = false;
+                    const span = document.createElement('span');
+                    span.classList.add('error-message');
+                    span.style.color = 'red';
+                    span.style.fontSize = '12px';
+                    span.textContent = 'This field is invalid or required.';
+                    field.insertAdjacentElement('afterend', span);
+                    field.style.borderColor = 'red';
+                } else {
+                    field.style.borderColor = '';
+                }
+            });
+
+            if (isValid) {
+                alert('Form submitted successfully!');
+                form.reset(); // Reset the form to empty state
             if (form.checkValidity()) {
                 alert('Form submitted successfully!');
                 form.reset(); // Reset the form to empty state
-            } else {
-                const fields = form.elements;
-                Array.from(fields).forEach(field => {
-                    const errorSpan = field.nextElementSibling;
-                    if (errorSpan && errorSpan.classList.contains('error-message')) {
-                        errorSpan.remove();
-                    }
-                    if (!field.checkValidity()) {
-                        const span = document.createElement('span');
-                        span.classList.add('error-message');
-                        span.style.color = 'red';
-                        span.style.fontSize = '12px';
-                        span.textContent = 'This field is invalid or required.';
-                        field.insertAdjacentElement('afterend', span);
-                        field.style.borderColor = 'red';
-                    } else {
-                        field.style.borderColor = '';
-                    }
-                });
+            }
             }
         });
     </script>
