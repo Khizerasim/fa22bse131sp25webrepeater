@@ -81,12 +81,13 @@
     </div>
     <div></div>
     <script>
-        document.querySelector('button').addEventListener('click', function(event) {
-            const form = document.querySelector('form');
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            const form = event.target;
             if (form.checkValidity()) {
-                form.submit();
+                alert('Form submitted successfully!');
+                form.reset(); // Reset the form to empty state
             } else {
-                event.preventDefault();
                 const fields = form.elements;
                 Array.from(fields).forEach(field => {
                     const errorSpan = field.nextElementSibling;
@@ -105,9 +106,6 @@
                         field.style.borderColor = '';
                     }
                 });
-                if (form.checkValidity()) {
-                    form.reset();
-                }
             }
         });
     </script>
